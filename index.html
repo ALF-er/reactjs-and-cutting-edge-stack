@@ -1,0 +1,675 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>ReactJS и Cutting edge стек</title>
+
+    <meta name="description" content="3D interactive presentation about ReactJS and other related products.">
+    <meta name="author" content="Illia Segeda aka ALFer" />
+
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body class="impress-not-supported">
+
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support all the features required</b>, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b> browser.</p>
+    </div>
+
+    <div id="impress">
+
+        <div class="step" id="home" data-x="-1000" data-y="-1500">
+            <img class="logo1" src="img/logo_react.svg" />
+            <img class="logo2" src="img/logo_flux.svg" />
+            <img class="logo3" src="img/logo_webpack.png" />
+            <img class="logo4" src="img/logo_babel.png" />
+            <img class="logo5" src="img/logo_rr.png" />
+            <img class="logo6" src="img/logo_immutable.svg" />
+
+            <h1><span>ReactJS</span><br>и Cutting edge стек</h1>
+        </div>
+
+        <div class="step" id="whoami" data-x="0" data-y="-1500">
+            <h1>Me</h1>
+
+            <p>
+                <b>Илья Сегеда</b><br>
+                aka ALFer
+            </p>
+
+            <ul>
+                <li>В фронтенде с 2001</li>
+                <li>Занимался Web/Flash до 2010</li>
+                <li>Занимаюсь JavaScript с 2007</li>
+            </ul>
+
+            <ul>
+                <li>Twitter: <a href="http://twitter.com/ALF_er">@ALF_er</a></li>
+                <li>Чаты: Illia Segeda aka ALFer</li>
+            </ul>
+
+            <img src="img/alf1.jpg" />
+        </div>
+
+        <div class="step" id="history" data-x="1500" data-y="-1500">
+            <p class="notes">
+                MapReduce позволил сделать Hadoop. С помощью Hadoop показал как большие сайты обрабатывают их данные.<br>
+                Dynamo описал как писать ДБ чтоб они могли работать вместе и скейлились с появлением новых нод и кластеров. Отсюда выросли Cassandra и Riak.<br>
+                Twitter потом свитчнулся обратно. Но это лишь из-за не отполированности реализации идеи. Тогда же появляется Backbone.js, что способствовало росту количества приложений с такой архитектурой. (В 2011 появляется Bootstrap)<br>
+                Angular.js структурировал приложения лучше Backbone.js, повысил их тестируемость и позволил шире использовать best practices, скрыв нудятину вроде binding data и rendering
+            </p>
+
+            <h1>Немного истории</h1>
+
+            <ul>
+                <li>В 2003 Brad Fitzpatrick выпустил Memcached, и показал как устроен LiveJournal</li>
+                <li>В 2004 Google опубликовал описание MapReduce, и показал как обрабатывать данные</li>
+                <li>В 2007 Amazon опубликовал описание Dynamo, и показал как строить БД</li>
+                <li>В 2010 Twitter свитчнулся на client-side templating, превратив сервер в просто API</li>
+                <li>В 2012 Google выпускает Angular.js 1.0</li>
+            </ul>
+
+            <p>В 2013 Pete Hunt выступает с докладом<br>Rethinking Best Practices и делает ещё одну революцию</p>
+        </div>
+
+        <div class="step" id="react" data-x="3000" data-y="-1500" data-rotate="180">
+            <h1>ReactJS</h1>
+            <img src="img/logo_react.svg" />
+        </div>
+
+        <div class="step react" id="react-0" data-x="3000" data-y="-1500" data-z="-4000">
+            <h1>Как бы нам хотелось</h1>
+
+            <p>Data</p>
+            <p>Library</p>
+            <p>DOM</p>
+            <code>Library(Data) → DOM</code>
+        </div>
+
+        <div class="step react" id="react-1" data-x="3000" data-y="-1500" data-z="-2000">
+            <h1>Объеденим логику отображения и само отображение</h1>
+
+            <p>Но как же separation of concerns?</p>
+        </div>
+
+        <div class="step react" id="react-2" data-x="3000" data-y="-1500" data-z="-2000">
+            <h1>Объеденим логику отображения и само отображение</h1>
+
+            <p>Но как же separation of concerns?</p>
+            <p>Темплейты разделяют не concerns, а технологии</p>
+        </div>
+
+        <div class="step react" id="react-3" data-x="3000" data-y="-1500" data-z="-2000">
+            <h1>Объеденим логику отображения и само отображение</h1>
+
+            <p>Но как же separation of concerns?</p>
+            <p>Темплейты разделяют не concerns, а технологии</p>
+            <p>А надо уменьшить coupling и увеличить cohesion</p>
+        </div>
+
+        <div class="step react" id="react-4" data-x="3000" data-y="-1500" data-z="-2000">
+            <h1>Объеденим логику отображения и само отображение</h1>
+
+            <p>Но как же separation of concerns?</p>
+            <p>Темплейты разделяют не concerns, а технологии</p>
+            <p>А надо уменьшить coupling и увеличить cohesion</p>
+            <p>Они неразделимы. Они творят UI</p>
+        </div>
+
+        <div class="step react" id="react-5" data-x="4500" data-y="-1500" data-z="4000" data-rotate="180" data-scale="3">
+            <h1>React представляет компоненты</h1>
+
+            <p>Они очень слабо связанны между собой (coupling)</p>
+            <p>Они отлично сплочены (cohesion)</p>
+            <p>Вы пишете на JS, а не на templating language</p>
+        </div>
+
+        <div class="step react" id="react-6" data-x="4500" data-y="-3000" data-z="8000" data-scale="3">
+            <h1>React представляет JSX</h1>
+
+            <p>Он не обязателен</p>
+            <p>Он удобен</p>
+            <p>Вы пишете HTML на JS</p>
+            <code>&lt;a href="http://smartme.com.ua/"&gt;Make me smart&lt;/a&gt;</code>
+            <code>React.DOM.a({ href: "http://smartme.com.ua/" }, "Make me smart")</code>
+        </div>
+
+        <div class="step react" id="react-7" data-x="3000" data-y="-3000" data-z="12000" data-rotate="180" data-scale="3">
+            <h1>React ререндерит всё дерево</h1>
+
+            <p>Как в 90ые с server-rendering'ом. React декларативно описывает как должен выглядеть наш UI в конкретный момент времени</p>
+            <p>И чтоб это не тормозило используется Virtual DOM</p>
+            <ul>
+                <li>Построить новое виртуальное дерево</li>
+                <li>Сравнить со старым деревом</li>
+                <li>Вычислить минимальное количество мутаций ДОМ</li>
+                <li>Выполнить их пачкой</li>
+            </ul>
+        </div>
+
+        <div class="step react" id="react-8" data-x="3000" data-y="-1500" data-z="16000" data-scale="3">
+            <h1>Дополнительные плюсы React</h1>
+
+            <p>Вместо того чтоб ловить ивенты клика в каждой ячейке таблицы можно ловить их на самой таблице. Это производительней.</p>
+            <p>Rect может рендерить ваше приложение в просто строку. Тоесть, его можно запустить на сервере. И это большой шаг к изоморфности</p>
+        </div>
+
+        <div class="step" id="flux" data-x="3000" data-y="-1500">
+            <h1>Flux</h1>
+            <img src="img/logo_flux.svg" />
+        </div>
+
+        <div class="step flux" id="flux-0" data-x="3000" data-y="-1500" data-z="-4000">
+            <h1>Возникла проблема</h1>
+
+            <p>Как нам структурировать приложение так чтоб работа с данными была такой же удобной как и работа с компонентами?</p>
+        </div>
+
+        <div class="step flux" id="flux-1" data-x="4500" data-y="-1500" data-rotate="180" data-scale="3">
+            <div class="blocks">
+                <div class="block block-view">View</div>
+            </div>
+        </div>
+
+        <div class="step flux" id="flux-2" data-x="4500" data-y="-1500" data-rotate="180" data-scale="3">
+            <div class="blocks">
+                <div class="block block-stores">Stores</div>
+                <div class="block block-view">View</div>
+            </div>
+        </div>
+
+        <div class="step flux" id="flux-3" data-x="4500" data-y="-1500" data-rotate="180" data-scale="3">
+            <div class="blocks">
+                <div class="block block-actions">Actions</div>
+                <div class="block block-stores">Stores</div>
+                <div class="block block-view">View</div>
+            </div>
+        </div>
+
+        <div class="step flux" id="flux-4" data-x="4500" data-y="-1500" data-rotate="180" data-scale="3">
+            <div class="blocks">
+                <div class="block block-actions">Actions</div>
+                <div class="block block-dispatcher">Dispatcher</div>
+                <div class="block block-stores">Stores</div>
+                <div class="block block-view">View</div>
+            </div>
+        </div>
+
+        <div class="step flux" id="flux-5" data-x="4500" data-y="-3000" data-z="4000" data-scale="3">
+            <h1>Пример "Банковский счёт"</h1>
+
+            <table>
+                <tr>
+                    <th width="50%">Транзакция</th>
+                    <th width="25%">Значение</th>
+                    <th width="25%">Баланс</th>
+                </tr>
+                <tr>
+                    <td>Создали счёт</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Депозит</td>
+                    <td>200</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>Снятие</td>
+                    <td>50</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>Депозит</td>
+                    <td>100</td>
+                    <td>250</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="step flux" id="flux-6" data-x="3000" data-y="-3000" data-z="8000" data-rotate="180" data-scale="3">
+            <h1>Action</h1>
+            <code>{
+	type: Actions.WITHDREW_FROM_ACCOUNT,
+	data: {
+		accountID: 7,
+		amount:    50,
+		date:      1429468551933
+	}
+}</code>
+        </div>
+
+        <div class="step flux" id="flux-7" data-x="4500" data-y="-3000" data-z="12000" data-scale="3">
+            <h1>Store</h1>
+            <code>let balance = 0;
+function onDispatch(action) {
+	switch (action.type) {
+		case Actions.WITHDREW_FROM_ACCOUNT:
+			balance -= action.data.amount;
+		break;
+	}
+}</code>
+            <code>getBalance();</code>
+        </div>
+
+        <div class="step flux" id="flux-8" data-x="4500" data-y="-1500" data-z="16000" data-rotate="180" data-scale="3">
+            <h1>В чём же разница?</h1>
+
+            <p>- О! Так это же Модели. Сейчас я сюда Бекбончик прикручу.<br>
+                - Я тебе прикручу! Ты где у Сторов Сеттеры увидел?</p>
+
+            <code>model.balance;<br>store.getBalance();</code><br>
+            <code>Object.observe(model, changes => {...});<br>store.subscribe(() => {...});</code><br>
+            <code>model.balance = 1000000;<br>???</code>
+        </div>
+
+        <div class="step flux" id="flux-9" data-x="3000" data-y="-1500" data-z="20000" data-scale="3">
+            <h1>Store - это функция от Actions</h1>
+
+            <code>Store(initialState, ...actions) → currentState</code>
+        </div>
+
+        <div class="step flux" id="flux-10" data-x="3000" data-y="-3000" data-z="24000" data-rotate="180" data-scale="3">
+            <h1>Следующий шаг</h1>
+
+            <p>Изменение счёта - это ведь ассинхронная операция!</p>
+            <code>function onDispatch(action) {
+	switch (action.type) {
+		case Actions.WITHDREW_FROM_ACCOUNT:
+                    requestWithdrawal(
+                        action.data.accountId,
+                        action.data.amount
+                    ).then(res => balance -= res.amount);
+	        break;
+	}
+}</code>
+        </div>
+
+        <div class="step flux" id="flux-11" data-x="4500" data-y="-3000" data-z="28000" data-scale="3">
+            <code>function requestWithdrawal(account, amount) {
+	requestWithdrawal(account, amount)
+		.done(
+			res => dispatch({
+				type: Actions.WITHDREW_FROM_ACCOUNT,
+				data: {...}
+			}),
+			err => dispatch({
+				type: Actions.WITHDRAWAL_FAILED,
+				data: {...}
+			});
+		);
+}</code>
+        </div>
+
+        <div class="step flux" id="flux-12" data-x="4500" data-y="-1500" data-z="32000" data-rotate="180" data-scale="3">
+            <h1>Но что если</h1>
+
+            <div class="error-notification">Возникла ошибка</div>
+        </div>
+
+        <div class="step flux" id="flux-13" data-x="4500" data-y="-1500" data-z="32000" data-rotate="180" data-scale="3">
+            <h1>Но что если</h1>
+
+            <div class="error-notification">Возникла ошибка</div>
+
+            <code>{
+    type: Actions.SHOW_NOTIFICATION,
+        data: {
+        	message: "Возникла ошибка",
+        		...
+    	}
+}</code>
+        </div>
+
+        <div class="step flux" id="flux-14" data-x="4500" data-y="-1500" data-z="32000" data-rotate="180" data-scale="3">
+            <h1>Но что если</h1>
+
+            <div class="error-notification">Возникла ошибка</div>
+
+            <code>{
+    type: Actions.SHOW_NOTIFICATION,
+        data: {
+        	message: "Возникла ошибка",
+        		...
+    	}
+}</code>
+
+            <p>WRONG!</p>
+        </div>
+
+        <div class="step flux" id="flux-15" data-x="3000" data-y="-1500" data-z="36000" data-scale="3">
+            <code>let messages = [];
+function onDispatch(action)	{
+	switch (action.type)	{
+		case Actions.WITHDRAWAL_FAILED:
+			messages.push("Возникла ошибка");
+		break;
+		case Actions.NOTIFICATION_DISMISSED:
+			messages = [];
+		break;
+		...
+	}
+}</code>
+        </div>
+
+        <div class="step flux" id="flux-16" data-x="3000" data-y="-3000" data-z="40000" data-rotate="180" data-scale="3">
+            <h1>Что нам это даёт?</h1>
+
+            <p>Совокупность всех Action описывает состояние нашего приложения в данный момент времени.</p>
+            <p>Зарепортить баг проще простого!</p>
+            <p>Юзер прикрепляет историю всех Action с параметрами к багрепорту (ну не совсем юзер), а мы спокойно их прокручиваем в нужном порядке и получаем нужное состояние приложения</p>
+        </div>
+
+        <div class="step flux" id="flux-17" data-x="4500" data-y="-3000" data-z="44000" data-scale="3">
+            <h1>Общая схема</h1>
+
+            <img src="img/flux_diagram.png" />
+        </div>
+
+        <div class="step flux" id="flux-18" data-x="4500" data-y="-1500" data-z="48000" data-rotate="180" data-scale="3">
+            <p>It's already Monday but we still don't have brand new Flux implementation</p>
+
+            <img src="img/homerplant.jpg" />
+        </div>
+
+        <div class="step" id="react-router" data-x="3000" data-y="-1500">
+            <h1>React-router</h1>
+            <img src="img/logo_rr.png" />
+        </div>
+
+        <div class="step rr" id="react-router-0" data-x="3000" data-y="-1500" data-z="-4000">
+            <code>var routes = (
+    &lt;Route handler={App} path="/"&gt;
+        &lt;DefaultRoute handler={Home} /&gt;
+        &lt;Route name="about" handler={About} /&gt;
+        &lt;Route name="users" handler={Users}&gt;
+            &lt;Route name="user" path="/user/:userId" handler={User} /&gt;
+            &lt;NotFoundRoute handler={UserRouteNotFound}/&gt;
+        &lt;/Route&gt;
+        &lt;NotFoundRoute handler={NotFound}/&gt;
+        &lt;Redirect from="company" to="about" /&gt;
+    &lt;/Route&gt;
+);
+
+Router.run(routes, Router.HistoryLocation, function(Handler) {
+    React.render(&lt;Handler/&gt;, document.getElementById("container"));
+});</code>
+        </div>
+
+        <div class="step" id="immutable" data-x="3000" data-y="-1500">
+            <h1>ImmutableJS</h1>
+            <img src="img/logo_immutable.svg" />
+        </div>
+
+        <div class="step immutable" id="immutable-0" data-x="3000" data-y="-1500" data-z="-4000">
+            <h1>Persistent<br>Immutable<br>Data structures</h1>
+
+            <p>Immutable - создали один раз и оно не меняется</p>
+            <p>Persistent - применяя изменения мы получаем новую структуру оставляя старую не тронутой</p>
+            <p>Data structures - структуры данных =)</p>
+        </div>
+
+        <div class="step immutable" id="immutable-1" data-x="4500" data-y="-1500" data-rotate="180" data-scale="3">
+            <h1>Пример использования</h1>
+
+            <code>import { List } from "immutable";
+var list = List.of(1, 2, 3); // List [1, 2, 3]
+var list2 = list.push(4); // List [1, 2, 3, 4]
+list // List [1, 2, 3]
+list2 === list // false</code>
+        </div>
+
+        <div class="step immutable" id="immutable-2" data-x="4500" data-y="-3000" data-z="4000" data-scale="3">
+            <h1>Но это же медленно!</h1>
+
+            <code>var list = [];
+for (var i = 0; i < 1000000; i++) {
+    list.push(i);
+}</code>        83ms
+<code>var list = Immutable.List();
+for (var i = 0; i < 1000000; i++) {
+    list = list.push(i);
+}</code>        288ms
+        </div>
+
+        <div class="step immutable" id="immutable-3" data-x="3000" data-y="-3000" data-z="8000" data-rotate="180" data-scale="3">
+            <h1>На чём это построено?</h1>
+
+            <p>DAG - Directed acyclic graph</p>
+            <p>Trie</p>
+            <p>HAMT - The Hash Array Mapped Trie</p>
+            <p>Ещё в 60ых такими людьми как Joseph Carl Robnett Licklider (ARPA, Trie), Alan Kay (Smalltalk), Phil Bagwell (Scala) и Rich Hickey (Clojure)</p>
+        </div>
+
+        <div class="step immutable" id="immutable-4" data-x="4500" data-y="-3000" data-z="12000" data-scale="3">
+            <h1>В чём это помогает?</h1>
+
+            <p>Concurrency - скоро JS будет многопоточным</p>
+            <p>The Many Mutators Problem</p>
+            <code>export function touchhAndPrint(touchFn) {
+    var data = { key: "value" };
+    touchFn(data);
+    console.log(data.key); // ?
+}</code>
+            <p>Что же поменялось?</p>
+        </div>
+
+        <div class="step immutable" id="immutable-5" data-x="4500" data-y="-1500" data-z="16000" data-rotate="180" data-scale="3">
+            <h1>Но для нас важно, что</h1>
+
+            <p>ReactJS имеет lifecycle метод shouldComponentUpdate(nextProps, nextState)</p>
+
+            <p>Например, Om - это обёртка на Clojure над ReactJS и он работает быстрее!</p>
+            <p>Undo фича за бесценок</p>
+        </div>
+
+        <div class="step" id="webpack" data-x="3000" data-y="-1500">
+            <h1>Webpack</h1>
+            <img src="img/logo_webpack.png" />
+        </div>
+
+        <div class="step webpack" id="webpack-0" data-x="3000" data-y="-1500" data-z="-4000">
+            <h1>Что такое Webpack</h1>
+            <ul>
+                <li>Module bundler</li>
+                <li>Понимает CommonJS, AMD и ES6 modules</li>
+                <li>Множественные Entrypoints</li>
+                <li>Воспринимает все assets как модули</li>
+                <li>Позволяет трансформировать модули</li>
+            </ul>
+        </div>
+
+        <div class="step webpack" id="webpack-1" data-x="4500" data-y="-1500" data-rotate="180" data-scale="3">
+            <h1>Множественные Entrypoints</h1>
+
+            <code>module.exports = {
+    entry: {
+        entry1: './entry1',
+        entry2: './entry2'
+    },
+    output: {
+        path: 'output',
+        filename: 'bundle-[name].js'
+    },
+    plugins: [
+        new CommonsChunkPlugin('common', 'bundle-[name].js')
+    ]
+};</code>
+        </div>
+
+        <div class="step webpack" id="webpack-2" data-x="4500" data-y="-3000" data-z="4000" data-scale="3">
+            <h1>Loaders</h1>
+
+            <code>module.exports = {
+    module: {
+        loaders: [
+            {
+                test: /\.(gif|jpe?g|png)$/,
+                loader: "url?limit=10000"
+            },
+            {
+                test: /\.css$/,
+                loader: "style!css"
+            },
+            {
+                test: /\.styl$/,
+                loader: "style!css!stylus"
+            }
+        ]
+    }
+};</code>
+        </div>
+
+        <div class="step webpack" id="webpack-3" data-x="3000" data-y="-3000" data-z="8000" data-rotate="180" data-scale="3">
+            <h1>Pre/Post Loaders</h1>
+
+            <code>module.exports = {
+    module: {
+        preLoaders: [{
+            test:    /\.js$/,
+            exclude: /(node_modules)\//,
+            loader:  "eslint"
+        }],
+
+        postLoaders: [{
+            test:    /\.js$/,
+            exclude: /(test|node_modules)\//,
+            loader:  'istanbul-instrumenter'
+        }]
+    }
+};</code>
+        </div>
+
+        <div class="step webpack" id="webpack-4" data-x="4500" data-y="-3000" data-z="12000" data-scale="3">
+            <h1>Load On Demand</h1>
+
+            <code>var a = require("./a");
+a.foo(console.log.bind(console));
+a.bar(console.log.bind(console));</code> entry.js
+            <code>module.exports = {
+    foo: function (callback) {
+        callback("foo");
+    },
+    bar: function (callback) {
+        require.ensure(["./b"], function (require) {
+            require("./b").bar(callback);
+        });
+    }
+};</code> a.js
+            <code>module.exports = {
+    bar: function (callback) {
+        callback("bar");
+    }
+};</code> b.js
+        </div>
+
+        <div class="step webpack" id="webpack-5" data-x="4500" data-y="-1500" data-z="16000" data-rotate="180" data-scale="3">
+            <h1>Всё то, что вы хотите</h1>
+
+            <ul>
+                <li>Source maps</li>
+                <li>Dedupe dependencies</li>
+                <li>Loaders под любой формат</li>
+            </ul>
+        </div>
+
+        <div class="step" id="babel" data-x="3000" data-y="-1500">
+            <h1>Babel</h1>
+
+            <img src="img/logo_babel.png" />
+        </div>
+
+        <div class="step babel" id="babel-0" data-x="3000" data-y="-1500" data-z="-4000">
+            <h1>Что такое Babel?</h1>
+
+            <ul>
+                <li>Компилятор JavaScript</li>
+                <li>ES6+</li>
+                <li>JSX</li>
+                <li>Flow</li>
+            </ul>
+        </div>
+
+        <div class="step babel" id="babel-1" data-x="4500" data-y="-1500" data-rotate="180" data-scale="3">
+            <h1>Как он работает?</h1>
+
+            <div class="blocks">
+                <div class="block block-parser"><b>Parser</b><br>Превращает код в AST</div>
+                <div class="block block-transformer"><b>Transformer</b><br>Манипулирует AST</div>
+                <div class="block block-generator"><b>Generator</b><br>Превращает AST в код</div>
+            </div>
+        </div>
+
+        <div class="step babel" id="babel-2" data-x="4500" data-y="-3000" data-z="4000" data-scale="3">
+            <h1>Результат</h1>
+
+            <img src="img/babel_results.png" />
+        </div>
+
+        <div class="step" id="relay" data-x="26500" data-y="-1500" data-z="40000">
+            <h1>GraphQL / Relay</h1>
+
+            <code>{
+    user(id: 3500401) {
+        id,
+        name,
+        isViewerFriend,
+        profilePicture(size: 50)  {
+            uri,
+            width,
+            height
+        }
+    }
+}</code>
+            <code>{
+    "user" : {
+        "id": 3500401,
+        "name": "Jing Chen",
+        "isViewerFriend": true,
+        "profilePicture": {
+            "uri": "http://someurl.cdn/pic.jpg",
+            "width": 50,
+            "height": 50
+        }
+    }
+}</code>
+        </div>
+
+        <div class="step" data-x="28000" data-y="-1500" data-z="40000">
+            <h1>React-native</h1>
+
+            <p>Не "write once, run anywhere",<br>а "learn once, write anywhere"</p>
+        </div>
+
+        <div class="step" data-x="25000" data-y="-1500" data-z="40000">
+            <h1>Who to follow...</h1>
+
+            <ul>
+                <li>Sebastian Markbåge <a href="https://twitter.com/sebmarkbage">@sebmarkbage</a></li>
+                <li>Lee Byron <a href="https://twitter.com/leeb">@leeb</a></li>
+                <li>Sebastian McKenzie <a href="https://twitter.com/sebmck">@sebmck</a></li>
+                <li>Vjeux <a href="https://twitter.com/Vjeux">@Vjeux</a></li>
+                <li>Jing Chen <a href="https://twitter.com/jingc">@jingc</a></li>
+                <li>Pete Hunt <a href="https://twitter.com/floydophone">@floydophone</a></li>
+                <li>Ryan Florence <a href="https://twitter.com/ryanflorence">@ryanflorence</a></li>
+                <li>Dan Abramov <a href="https://twitter.com/dan_abramov">@dan_abramov</a></li>
+                <li>Ingvar Stepanyan <a href="https://twitter.com/RReverser">@RReverser</a></li>
+                <li>...</li>
+            </ul>
+        </div>
+
+        <div class="step" id="end" data-x="-1000" data-y="-1500" data-z="10000">
+            <h1>Thanks!</h1>
+        </div>
+
+    </div>
+
+    <script src="js/impress.js"></script>
+    <script>
+        impress().init();
+    </script>
+
+</body>
+</html>

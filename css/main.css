@@ -1,0 +1,525 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+body {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+
+    min-height: 740px;
+
+    background-color: white;
+    -webkit-font-smoothing: antialiased;
+}
+
+b, strong { font-weight: bold }
+i, em { font-style: italic}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    background: yellow;
+    padding: 0 4px;
+}
+
+/* enable clicking on elements 'hiding' behind body in 3D */
+body     { pointer-events: none; }
+#impress { pointer-events: auto; }
+
+/* COMMON STEP STYLES */
+
+.step {
+    height: 900px;
+    width: 900px;
+    padding: 65px 0 60px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+
+    font-size: 35px;
+    line-height: 1.5;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -ms-transition:     opacity 1s;
+    -o-transition:      opacity 1s;
+    transition:         opacity 1s;
+}
+
+.step:not(.active) {
+    opacity: 0;
+}
+
+/* IMPRESS NOT SUPPORTED STYLES */
+
+.fallback-message {
+    font-family: sans-serif;
+    line-height: 1.3;
+
+    display: none;
+    width: 780px;
+    padding: 10px 10px 0;
+    margin: 20px auto;
+
+    border-radius: 10px;
+    border: 1px solid #E4C652;
+    background: #EEDC94;
+}
+
+.fallback-message p {
+    margin-bottom: 10px;
+}
+
+.impress-not-supported .step {
+    position: relative;
+    opacity: 1;
+    margin: 20px auto;
+}
+
+.impress-not-supported .fallback-message {
+    display: block;
+}
+
+/* PRESENTATION SPECIFIC */
+
+body {
+    background: rgb(215, 215, 215);
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
+    background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:    -moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:     -ms-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:      -o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:         radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+}
+
+.step h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.step a {color: black;}
+.step p {margin: 20px 0;}
+.step li {line-height: 2em;}
+
+.step.top {height: auto;}
+.step.top h1 {display: block;}
+.step.top h1:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.step.top .number {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 200px;
+    font-size: 150px;
+    float: left;
+    margin: 0 20px 30px 0;
+
+    font-weight: 700;
+}
+
+.step > aside {
+    font-size: .5em;
+    position: absolute;
+    bottom: 150px;
+}
+
+.step img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.step .notes {
+    display: none;
+}
+
+.step code {
+    background: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+    display: inline-block;
+    white-space: pre;
+}
+
+.step.react,
+.step.flux {
+    width: 1024px;
+}
+.step.react h1,
+.step.flux h1 {
+    font-size: 3em;
+    line-height: 1.2em;
+    margin-bottom: 50px;
+}
+
+.step .error-notification {
+    position: fixed;
+    top: 60px;
+    right: 0px;
+    background: #891F12;
+    border: 3px solid white;
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    transition: top 2s ease 1s;
+}
+
+
+/* PRESENTATION STEP SPECIFIC */
+
+.step#home h1, .step#end h1 {font-size: 75px; margin: 0;}
+
+.step#home h1 span {
+    font-size: 110px;
+}
+.step#home img {
+    bottom: -50px;
+    width: 600px;
+    opacity: 0.0;
+    animation-duration: 24s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.step#home.active img {
+    animation-name: animation-logo;
+}
+
+@keyframes animation-logo {
+    0%    { opacity: 0.0; }
+    5.75% { opacity: 1.0; }
+    6.75% { opacity: 1.0; }
+    12.5% { opacity: 0.0; }
+    100%  { opacity: 0.0; }
+}
+
+.step#home .logo1 {
+    animation-delay: 0s;
+}
+.step#home .logo2 {
+    animation-delay: 4s;
+}
+.step#home .logo3 {
+    animation-delay: 8s;
+}
+.step#home .logo4 {
+    animation-delay: 12s;
+}
+.step#home .logo5 {
+    bottom: 130px;
+    animation-delay: 16s;
+}
+.step#home .logo6 {
+    bottom: 200px;
+    animation-delay: 20s;
+}
+
+.step#whoami ul {
+    margin-bottom: 50px;
+}
+
+.step#whoami img {
+    width: 400px;
+    bottom: 230px;
+    right: -100px;
+}
+
+.step#history {
+    padding: 15px 0;
+}
+.step#history ul, .step#history p {
+    margin-top: 50px
+}
+.step#history li {
+    line-height: 1.3em;
+    margin-bottom: 20px;
+}
+.step#react-7 {
+    padding-top: 30px;
+}
+.step#flux img {
+    width: 600px;
+}
+
+.step.flux .blocks {
+    text-align: center;
+}
+.step.flux .block {
+    border: 3px solid white;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 10px 15px;
+    color: white;
+    font-size: 1.5em;
+    position: relative;
+    margin-right: 45px;
+    margin-top: 300px;
+    box-shadow: 0px 0px 35px -5px black;
+}
+.step.flux .block::after {
+    content: "→";
+    font-size: 100px;
+    position: absolute;
+    left: 99%;
+    top: 50%;
+    margin-top: -75px;
+    color: white;
+    text-shadow: 0px 0px 30px black;
+}
+.step.flux .block:last-of-type {
+    margin-right: 0;
+}
+.step.flux .block:last-of-type::after {
+    display: none;
+}
+.step.flux .block-view {
+    background: rgb(73, 146, 244);
+}
+.step.flux .block-stores {
+    background: #C2812F;
+}
+.step.flux .block-dispatcher {
+    background: #579059;
+}
+.step.flux .block-actions {
+    background: #BE444F;
+}
+
+.step.flux table {
+    width: 100%;
+    text-align: left;
+}
+.step.flux th {
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+.step.flux td {
+    padding-bottom: 10px;
+}
+.step#flux-9 {
+    padding-top: 200px;
+}
+.step#flux-12 .error-notification {
+    top: -200px;
+}
+.step.active#flux-12 .error-notification {
+    top: 60px;
+}
+.step#flux-17 img {
+    width: 100%;
+    bottom: 120px;
+}
+.step#flux-18 img {
+    width: 100%;
+}
+
+.step#react-router-0 {
+    padding-top: 20px;
+}
+
+.step#webpack img {
+    width: 600px;
+}
+
+.step.webpack code {
+    line-height: 1.1em;
+}
+.step#webpack-4 {
+    padding-top: 0;
+}
+
+.step#babel img {
+    width: 600px;
+}
+
+.step.babel .blocks {
+    text-align: center;
+}
+.step.babel .block {
+    width: 400px;
+    margin: 50px auto;
+    color: white;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.step.babel .block-parser {
+    background: #2C7AAB;
+}
+.step.babel .block-transformer {
+    background: #2E9742;
+}
+.step.babel .block-generator {
+    background: #AD422E;
+}
+
+.step#babel-2 img {
+    width: 100%;
+    bottom: 160px;
+}
+
+.step#relay {
+    padding-top: 0;
+    width: 1120px;
+}
+.step#relay code {
+    line-height: 1.1em;
+}
+
+.step#previously ol.two-column {
+    margin-top: 20px;
+    -moz-column-width: 7em;
+    -webkit-column-width: 7em;
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+}
+
+.step#previously ol li {
+    line-height: 1.6em
+}
+
+.step#mytop h1 {
+    font-size: 70px;
+    text-align: center;
+}
+
+.step#mytop h1 b {
+    font-size: 1.6em
+}
+
+.step#mytop img {
+    right: 150px;
+    bottom: 120px;
+}
+
+.step#mytop img#tv-logo {
+    right: -80px;
+    top: 120px;
+    -webkit-transform: rotate(20deg);
+}
+
+.step#install img {
+    bottom: 120px;
+}
+
+.step#install img + img {
+    left: 0;
+}
+
+.step#timetochange h1, .step#timetochange ol {
+    font-size: 1.4em;
+}
+
+.step#timetochange ol {
+    margin-left: 100px
+}
+
+.step#job img {
+    right: 200px;
+    bottom: 40px;
+}
+
+.step#end h1 {
+    font-size:5em
+}
+
+/* INVERT SPECIFIC */
+
+body#invert {background-color: black; color: white}
+body#invert .step a {color: black; background-color: #78FFB8;}
+
+@-webkit-keyframes twinkly-big {
+    0%   { text-shadow: 0 0 50px #78FFB8; }
+    100% { text-shadow: 0 0 50px #377E57; }
+}
+@-moz-keyframes twinkly-big  {
+    0%   { text-shadow: 0 0 100px #6c9; }
+    100% { text-shadow: 0 0 50px #377E57; }
+}
+@-ms-keyframes twinkly-big  {
+    0%   { text-shadow: 0 0 100px #6c9; }
+    100% { text-shadow: 0 0 50px #377E57; }
+}
+
+#twinkle-big{
+    -webkit-animation: twinkly-big 2s alternate infinite;
+    -moz-animation: twinkly-big 2s alternate infinite;
+    -ms-animation: twinkly-big 2s alternate infinite;
+}
+
+@-webkit-keyframes twinkly {
+    0%   { text-shadow: 10px 10px 30px #78FFB8; }
+    100% { text-shadow: 10px 10px 30px #377E57; }
+}
+@-moz-keyframes twinkly  {
+    0%   { text-shadow: 0 0 100px #6c9; }
+    100% { text-shadow: 0 0 50px #377E57; }
+}
+@-ms-keyframes twinkly  {
+    0%   { text-shadow: 0 0 100px #6c9; }
+    100% { text-shadow: 0 0 50px #377E57; }
+}
+
+#twinkle{
+    -webkit-animation: twinkly 2s alternate infinite;
+    -moz-animation: twinkly 2s alternate infinite;
+    -ms-animation: twinkly 2s alternate infinite;
+}
