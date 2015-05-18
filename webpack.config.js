@@ -73,13 +73,6 @@ module.exports = {
 			},
 
 			{
-				test:    /\.json$/,
-				loaders: [
-					"json"
-				]
-			},
-
-			{
 				test:    /\.(png|jpg|gif)$/,
 				loaders: (function() {
 					var loaders = [];
