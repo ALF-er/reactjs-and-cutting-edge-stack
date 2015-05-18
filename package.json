@@ -9,7 +9,7 @@
     "build:webpack": "webpack -p --progress --colors",
     "build": "npm run build:html && npm run build:webpack",
     "predev": "npm run build:html",
-    "dev": "webpack-dev-server --hot --content-base ./dist/ --port 4000 --history-api-fallback --inline"
+    "dev": "npm run build && webpack-dev-server --hot --content-base ./dist/ --port 4000 --history-api-fallback --inline"
   },
   "dependencies": {
     "classnames": "^2.1.0",
