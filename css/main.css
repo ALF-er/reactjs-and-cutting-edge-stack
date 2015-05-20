@@ -523,3 +523,43 @@ body#invert .step a {color: black; background-color: #78FFB8;}
     -moz-animation: twinkly 2s alternate infinite;
     -ms-animation: twinkly 2s alternate infinite;
 }
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+@media print {
+
+
+  /** { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  /*a[href]:after { content: " (" attr(href) ")"; }*/
+  /*abbr[title]:after { content: " (" attr(title) ")"; }*/
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } /* Don't show links for images, or javascript/internal links */
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+
+  /* Impress.js specific */
+  .fallback-message { display: none; }
+  @page land {size: landscape;}
+  .step { /*border: 0;*/ opacity: 1 !important; page-break-inside: avoid; page-break-after: always; position: relative !important; -webkit-transform: none !important;  }
+  .step img { max-height: 100%; }
+  body { height: auto !important; overflow: visible !important; }
+  #impress { position: relative !important; -webkit-transform-origin: none !important; top: 0 !important; left: 0 !important; -webkit-transform: none !important; }
+
+    * {
+        color: #000 !important;
+        transition: none !important;
+        animation: none !important;
+    }
+    code { border: 2px solid #000 !important; }
+    .error-notification {
+        position: absolute !important;
+        border: 2px solid #000 !important;
+    }
+    #react-1, #react-2, #react-3, #flux-1, #flux-2, #flux-3, #flux-12, #flux-13 { display: none; }
+}

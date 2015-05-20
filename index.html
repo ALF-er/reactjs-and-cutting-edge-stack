@@ -606,6 +606,7 @@ a.bar(console.log.bind(console));</code> entry.js
             <h1>Результат</h1>
 
             <img src="img/babel_results.png" />
+            <a href="http://kangax.github.io/compat-table/es6/">http://kangax.github.io/compat-table/es6/</a>
         </div>
 
         <div class="step" id="relay" data-x="26500" data-y="-1500" data-z="40000">
@@ -656,7 +657,7 @@ a.bar(console.log.bind(console));</code> entry.js
                 <li>Ryan Florence <a href="https://twitter.com/ryanflorence">@ryanflorence</a></li>
                 <li>Dan Abramov <a href="https://twitter.com/dan_abramov">@dan_abramov</a></li>
                 <li>Ingvar Stepanyan <a href="https://twitter.com/RReverser">@RReverser</a></li>
-                <li>...</li>
+                <li><a href="https://medium.com/@dan_abramov/my-react-list-862227952a8c">https://medium.com/@dan_abramov/my-react-list-862227952a8c</a></li>
             </ul>
         </div>
 
@@ -668,7 +669,9 @@ a.bar(console.log.bind(console));</code> entry.js
 
     <script src="js/impress.js"></script>
     <script>
-        impress().init();
+        if ( !window.location.search.match(/print/) ) {
+            impress().init();
+        }
     </script>
 
 </body>
