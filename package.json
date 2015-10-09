@@ -1,38 +1,37 @@
 {
-  "name": "RCEH",
+  "name": "RCES",
   "version": "0.0.1",
   "description": "React & cutting edge stack hackathon",
   "scripts": {
     "clean": "rimraf ./dist",
     "prebuild:html": "npm run clean",
-    "build:html": "mkdir dist && hashmark ./src/index.html ./dist/{name}.html",
+    "build:html": "mkdirp dist && cpy ./src/index.html ./dist/",
     "build:webpack": "webpack -p --progress --colors",
     "build": "npm run build:html && npm run build:webpack",
     "predev": "npm run build:html",
-    "dev": "npm run build && webpack-dev-server --hot --content-base ./dist/ --port 4000 --history-api-fallback --inline"
+    "dev": "webpack-dev-server --hot --content-base ./dist/ --port 4000 --history-api-fallback --inline"
   },
   "dependencies": {
     "classnames": "^2.1.0",
     "flux": "^2.0.3",
-    "immutable": "^3.7.2",
     "react": "^0.13.3",
-    "react-router": "^0.13.3",
-    "whatwg-fetch": "^0.8.1"
+    "react-router": "^1.0.0-rc3",
+    "whatwg-fetch": "^0.9.0"
   },
   "devDependencies": {
-    "autoprefixer-loader": "^1.2.0",
+    "autoprefixer-loader": "^3.1.0",
     "babel-core": "^5.2.17",
-    "babel-eslint": "^3.1.1",
     "babel-loader": "^5.0.0",
     "babel-runtime": "^5.2.17",
-    "css-loader": "^0.12.0",
+    "cpy": "^3.4.1",
+    "css-loader": "^0.19.0",
     "exports-loader": "^0.6.2",
     "file-loader": "^0.8.1",
-    "hashmark": "^3.0.0",
+    "mkdirp": "^0.5.1",
     "react-hot-loader": "^1.2.7",
     "rimraf": "^2.3.3",
     "style-loader": "^0.12.2",
-    "stylus": "^0.51.1",
+    "stylus": "^0.52.0",
     "stylus-loader": "^1.1.1",
     "url-loader": "^0.5.5",
     "webpack": "^1.9.4",

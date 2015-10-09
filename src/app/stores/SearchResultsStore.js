@@ -1,14 +1,14 @@
-import RCEHDispatcher from "dispatcher/RCEHDispatcher";
+import RCESDispatcher from "dispatcher/RCESDispatcher";
 import { ActionTypes, PayloadSources } from "constants/AppConstants";
 import assign from "react/lib/Object.assign";
 import { EventEmitter } from "events";
-import { List } from "immutable";
 
 const CHANGE_EVENT = "CHANGE_EVENT";
 
-let results = List();
+let searchResults = [];
 
-let SearchResultsStore	= assign({}, EventEmitter.prototype, {
+const SearchResultsStore = assign({}, EventEmitter.prototype, {
+
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	},
@@ -27,28 +27,26 @@ let SearchResultsStore	= assign({}, EventEmitter.prototype, {
 		this.removeListener(CHANGE_EVENT, callback);
 	},
 
-    getResults() {
-        return results;
-    },
+	getResults() {
+		return searchResults;
+	},
 
-    dispatchToken: RCEHDispatcher.register((payload) => {
-		let action	= payload.action;
-		let err		= action.error;
-		let res		= action.result;
-        let source  = payload.source;
+	dispatchToken: RCESDispatcher.register(({ source, action: { type, error, result } }) => {
+		switch(type) {
 
-		switch(action.type) {
 			case ActionTypes.SEARCH:
-				if (err || source == PayloadSources.VIEW_ACTION) {
-					results = List();
-				} else if (res) {
-					results = res;
+				if (error || (source === PayloadSources.VIEW_ACTION)) {
+					searchResults = [];
+				} else if (result) {
+					searchResults = result;
 				}
 
 				SearchResultsStore.emitChange();
 			break;
-        }
-    })
+
+		}
+	})
+
 });
 
 export default SearchResultsStore;

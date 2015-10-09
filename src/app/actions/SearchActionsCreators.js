@@ -1,13 +1,15 @@
-import RCEHDispatcher from "dispatcher/RCEHDispatcher";
+import RCESDispatcher from "dispatcher/RCESDispatcher";
 import { ActionTypes } from "constants/AppConstants";
 import { search as searchAPI } from "utils/GITHUBAPIUtils";
 
 export default {
-    async search(term) {
-        RCEHDispatcher.handleViewAction(ActionTypes.SEARCH, term);
 
-        let res = await searchAPI(term);
+	async search(term) {
+		RCESDispatcher.handleViewAction(ActionTypes.SEARCH, term);
 
-        RCEHDispatcher.handleServerAction(ActionTypes.SEARCH, res);
-    }
+		const res = await searchAPI(term);
+
+		RCESDispatcher.handleServerAction(ActionTypes.SEARCH, res);
+	}
+
 }

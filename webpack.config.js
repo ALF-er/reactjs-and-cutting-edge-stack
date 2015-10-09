@@ -8,15 +8,10 @@ var argv = yargs
 	.argv;
 
 module.exports = {
-	entry: (function() {
-		var entry = [];
 
-		entry.push(path.join(__dirname, "src", "app", "entrypoints", "main.jsx"));
-
-		return {
-			main: entry
-		};
-	})(),
+	entry: {
+		main: path.join(__dirname, "src", "app", "entrypoints", "main.js")
+	},
 
 	output: {
 		path:       path.join(__dirname, "dist", "app"),
@@ -33,12 +28,6 @@ module.exports = {
 
 			{
 				test:    /\.js$/,
-				exclude: [/node_modules/],
-				loaders: ["babel"]
-			},
-
-			{
-				test:    /\.jsx$/,
 				exclude: [/node_modules/],
 				loaders: (function() {
 					var loaders = [];
@@ -93,14 +82,16 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions:         ["", ".js", ".jsx"],
-		root:               path.join(__dirname, "src", "app"),
+		extensions:         ["", ".js"],
+		root:               [
+			path.join(__dirname, "src", "app")
+		],
 		modulesDirectories: ["web_modules", "node_modules", "src"]
 	},
 
 	cache:   !argv.p,
 	debug:   !argv.p,
-	devtool: !argv.p ? "eval-cheap-module-source-map" : false,
+	devtool: !argv.p ? "eval" : false,
 
 	stats: {
 		colors:  true,
