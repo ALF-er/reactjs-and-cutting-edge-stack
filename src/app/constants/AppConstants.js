@@ -3,7 +3,6 @@ import keyMirror from "react/lib/keyMirror";
 export default {
 
 	ActionTypes: keyMirror({
-		SEARCH: null
 	}),
 
 	PayloadSources: keyMirror({
