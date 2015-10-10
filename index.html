@@ -115,7 +115,7 @@
             <p>Но как же separation of concerns?</p>
             <p>Темплейты разделяют не concerns, а технологии</p>
             <p>А надо уменьшить coupling и увеличить cohesion</p>
-            <p>Они неразделимы. Они творят UI</p>
+            <p>Они являются first-class sitizen'ами для языка</p>
         </div>
 
         <div class="step react" id="react-5" data-x="4500" data-y="-1500" data-z="4000" data-rotate="180" data-scale="3">
@@ -147,6 +147,28 @@
                 <li>Вычислить минимальное количество мутаций ДОМ</li>
                 <li>Выполнить их пачкой</li>
             </ul>
+        </div>
+
+        <div class="step react" id="react-vdom-2" data-x="4500" data-y="-3000" data-z="8000" data-scale="3">
+            <h1>React ререндерит всё дерево</h1>
+
+            <img class="react-render" src="img/doom_renderer.png" />
+            <div class="react-render-abstraction">Game state</div>
+            <div class="react-render-abstraction">Game logic</div>
+            <div class="react-render-abstraction">Scene IR</div>
+            <div class="react-render-abstraction">OpenGL ops</div>
+            <div class="react-render-abstraction">GFX card</div>
+        </div>
+
+        <div class="step react" id="react-vdom-3" data-x="4500" data-y="-3000" data-z="8000" data-scale="3">
+            <h1>React ререндерит всё дерево</h1>
+
+            <img class="react-render" src="img/doom_renderer.png" />
+            <div class="react-render-abstraction">App state</div>
+            <div class="react-render-abstraction">React<br>components</div>
+            <div class="react-render-abstraction">Virtual DOM</div>
+            <div class="react-render-abstraction">DOM<br>operations</div>
+            <div class="react-render-abstraction">Browser</div>
         </div>
 
         <div class="step react" id="react-8" data-x="3000" data-y="-1500" data-z="16000" data-scale="3">
@@ -380,22 +402,17 @@ function onDispatch(action)	{
         </div>
 
         <div class="step rr" id="react-router-0" data-x="3000" data-y="-1500" data-z="-4000">
-            <code>var routes = (
-    &lt;Route handler={App} path="/"&gt;
-        &lt;DefaultRoute handler={Home} /&gt;
-        &lt;Route name="about" handler={About} /&gt;
-        &lt;Route name="users" handler={Users}&gt;
-            &lt;Route name="user" path="/user/:userId" handler={User} /&gt;
-            &lt;NotFoundRoute handler={UserRouteNotFound}/&gt;
-        &lt;/Route&gt;
-        &lt;NotFoundRoute handler={NotFound}/&gt;
-        &lt;Redirect from="company" to="about" /&gt;
+            <code>React.render((
+  &lt;Router&gt;
+    &lt;Route path="/" component={App}&gt;
+      &lt;Route path="about" component={About}/&gt;
+      &lt;Route path="users" component={Users}&gt;
+        &lt;Route path="/user/:userId" component={User}/&gt;
+      &lt;/Route&gt;
+      &lt;Route path="*" component={NoMatch}/&gt;
     &lt;/Route&gt;
-);
-
-Router.run(routes, Router.HistoryLocation, function(Handler) {
-    React.render(&lt;Handler/&gt;, document.getElementById("container"));
-});</code>
+  &lt;/Router&gt;
+), document.getElementById("container"));</code>
         </div>
 
         <div class="step" id="immutable" data-x="3000" data-y="-1500">

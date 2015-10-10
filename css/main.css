@@ -295,6 +295,62 @@ body {
 .step#react-7 {
     padding-top: 30px;
 }
+
+.step .react-render {
+    bottom: initial;
+    right: initial;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.step .react-render-abstraction {
+    position: absolute;
+    font-size: 0.9em;
+    line-height: 1em;
+    top: 70%;
+    left: 50%;
+    transform-origin: 50% 0;
+    text-align: center;
+}
+.step .react-render-abstraction:before {
+    content: "↑";
+    font-size: 2em;
+    position: absolute;
+    transform: translate(-50%, -120%);
+    left: 50%;
+}
+.step#react-vdom-2 .react-render-abstraction:nth-of-type(1) {
+    transform: translateX(-450px);
+}
+.step#react-vdom-2 .react-render-abstraction:nth-of-type(2) {
+    transform: translateX(-260px);
+}
+.step#react-vdom-2 .react-render-abstraction:nth-of-type(3) {
+    transform: translateX(-70px);
+}
+.step#react-vdom-2 .react-render-abstraction:nth-of-type(4) {
+    transform: translateX(82px);
+}
+.step#react-vdom-2 .react-render-abstraction:nth-of-type(5) {
+    transform: translateX(300px);
+}
+.step#react-vdom-3 .react-render-abstraction:nth-of-type(1) {
+    transform: translateX(-437px);
+}
+.step#react-vdom-3 .react-render-abstraction:nth-of-type(2) {
+    transform: translateX(-268px);
+}
+.step#react-vdom-3 .react-render-abstraction:nth-of-type(3) {
+    transform: translateX(-94px);
+}
+.step#react-vdom-3 .react-render-abstraction:nth-of-type(4) {
+    transform: translateX(95px);
+}
+.step#react-vdom-3 .react-render-abstraction:nth-of-type(5) {
+    transform: translateX(308px);
+}
+
+
 .step#flux img {
     width: 600px;
 }
