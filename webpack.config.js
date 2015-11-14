@@ -91,7 +91,7 @@ module.exports = {
 
 	cache:   !argv.p,
 	debug:   !argv.p,
-	devtool: !argv.p ? "eval" : false,
+	devtool: !argv.p ? "source-map" : false,
 
 	stats: {
 		colors:  true,
